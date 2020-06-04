@@ -14,9 +14,11 @@ Dish.destroy_all
 u1 = User.create(name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being" )
 u2 = User.create(name: "Mary", email: "mary@mail.com", password_digest: "pass", about: "I am a human being" )
 #Chefs
-c1 = User.create(name: "Francois", email: "fran@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
-c2 = User.create(name: "Dave", email: "dave@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
-c3 = User.create(name: "Beza", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", is_chef: true)
+c1 = User.create(name: "Francois Chang", email: "fran@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
+c2 = User.create(name: "Dave Molina", email: "dave@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
+c3 = User.create(name: "Beza Bezos", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", is_chef: true)
+c4 = User.create(name: "Bill Gates", email: "bill@mail.com", password_digest: "pass", about: "I can also make real food, not only virtual", is_chef: true)
+c5 = User.create(name: "Elon Musk", email: "elon@mail.com", password_digest: "pass", about: "Are you ready to try food out of this world?", is_chef: true)
 #Events
 
 e1 = Event.create(party_size: 2, chef: c1, customer_id: u1.id, date: Date.new(2009,10,9) , occasion: "Anniversary")
