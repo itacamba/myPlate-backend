@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_165937) do
     t.string "cuisine"
     t.string "img", default: "https://cdn2.iconfinder.com/data/icons/food-restaurant-1/128/flat-15-512.png"
     t.string "description"
-    t.integer "chef_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

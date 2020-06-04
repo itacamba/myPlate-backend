@@ -25,10 +25,10 @@ e3 = Event.create(party_size: 3, chef: c2, customer_id: u1.id, date: Date.new(20
 
 
 #Dishes
-d1 = Dish.create(name: "Kitfo", chef: c2 , cuisine: "Etiopian", description: "Delicious food so you can eat it and then eat some more.")
-d2 = Dish.create(name: "Ravioli con Carne", chef: c3 , cuisine: "Italian", description:"Delicious food so you can eat it and then eat some more." )
-d3 = Dish.create(name: "Sushi", chef: c2 , cuisine: "Asian", description: "Delicious food so you can eat it and then eat some more.")
-d4 = Dish.create(name: "Arancini con Queso", chef: c1 , cuisine: "French", description:"Delicious food so you can eat it and then eat some more." )
-d5 = Dish.create(name: "Doro Wet", chef: c2 , cuisine: "African", description: "Delicious food so you can eat it and then eat some more.")
-d6 = Dish.create(name: "Greasy Hamburger", chef: c1 , cuisine: "American", description: "Delicious food so you can eat it and then eat some more.")
+d1 = Dish.create(name: "Kitfo", user: c3 , cuisine: "Etiopian", description: "Delicious food so you can eat it and then eat some more.")
+d2 = Dish.create(name: "Ravioli con Carne", user: c3 , cuisine: "Italian", description:"Delicious food so you can eat it and then eat some more." )
+d3 = Dish.create(name: "Sushi", user: c2 , cuisine: "Asian", description: "Delicious food so you can eat it and then eat some more.")
+d4 = Dish.create(name: "Arancini con Queso", user: c1 , cuisine: "French", description:"Delicious food so you can eat it and then eat some more." )
+d5 = Dish.create(name: "Doro Wet", user: c2 , cuisine: "African", description: "Delicious food so you can eat it and then eat some more.")
+d6 = Dish.create(name: "Greasy Hamburger", user: c1 , cuisine: "American", description: "Delicious food so you can eat it and then eat some more.")
 
