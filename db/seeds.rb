@@ -16,7 +16,7 @@ u2 = User.create(name: "Mary", email: "mary@mail.com", password_digest: "pass", 
 #Chefs
 c1 = User.create(name: "Francois Chang", email: "fran@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
 c2 = User.create(name: "Dave Molina", email: "dave@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
-c3 = User.create(name: "Beza Bezos", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", is_chef: true)
+c3 = User.create(name: "Beza Bezos", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", img: "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512",is_chef: true)
 c4 = User.create(name: "Bill Gates", email: "bill@mail.com", password_digest: "pass", about: "I can also make real food, not only virtual", is_chef: true)
 c5 = User.create(name: "Elon Musk", email: "elon@mail.com", password_digest: "pass", about: "Are you ready to try food out of this world?", is_chef: true)
 #Events
@@ -27,7 +27,7 @@ e3 = Event.create(party_size: 3, chef: c2, customer_id: u1.id, date: Date.new(20
 
 
 #Dishes
-d1 = Dish.create(name: "Kitfo", user: c3 , cuisine: "Etiopian", description: "Delicious food so you can eat it and then eat some more.")
+d1 = Dish.create(name: "Kitfo", user: c3 , cuisine: "Etiopian", description: "Delicious food so you can eat it and then eat some more.", img: "https://i.pinimg.com/originals/a9/c1/82/a9c182c0221388027b13e91853bd4d35.png")
 d2 = Dish.create(name: "Ravioli con Carne", user: c3 , cuisine: "Italian", description:"Delicious food so you can eat it and then eat some more." )
 d3 = Dish.create(name: "Sushi", user: c2 , cuisine: "Asian", description: "Delicious food so you can eat it and then eat some more.")
 d4 = Dish.create(name: "Arancini con Queso", user: c1 , cuisine: "French", description:"Delicious food so you can eat it and then eat some more." )

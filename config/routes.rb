@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :dishes
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
   get '/chefs', to: 'users#chefs_index'
   get '/customers', to: 'users#customers_index'
   resources :events
