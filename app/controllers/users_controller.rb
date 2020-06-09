@@ -12,4 +12,10 @@ class UsersController < ApplicationController
         render json: chefs.as_json(include: { dishes: {except: [:created_at, :updated_at]}}, except: [:created_at, :updated_at])
     end
 
+    def user_events
+        user = User.find(params[:user_id])
+        events = Event.all.where(customer_id: user.id)
+        render json: events
+    end
+
 end

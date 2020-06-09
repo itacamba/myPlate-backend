@@ -30,7 +30,7 @@ d5 = Dish.create(name: "Doro Wet", user: c2 , cuisine: "African", description: "
 d6 = Dish.create(name: "Greasy Hamburger", user: c1 , cuisine: "American", description: "Delicious food so you can eat it and then eat some more.")
 
 
-#Events
+#Events / date format (yyyy,mm,dd)
 
 e1 = Event.create(party_size: 2, chef: c1, customer_id: u1.id, date: Date.new(2009,10,9) , ocassion: "Anniversary", dish_id: d4.id)
 e2 = Event.create(party_size: 4, chef: c1, customer_id: u2.id, date: Date.new(2009,10,20) , ocassion: "Birthday", dish_id: d6.id)
