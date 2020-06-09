@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(version: 2020_06_03_165937) do
   create_table "events", force: :cascade do |t|
     t.integer "party_size"
     t.date "date"
-    t.string "occasion"
+    t.string "ocassion"
     t.integer "chef_id"
     t.integer "customer_id"
     t.boolean "isApproved", default: false
+    t.integer "dish_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

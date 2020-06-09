@@ -3,11 +3,11 @@ class CreateEvents < ActiveRecord::Migration[6.0]
     create_table :events do |t|
       t.integer :party_size
       t.date :date
-      t.string :occasion
+      t.string :ocassion
       t.integer :chef_id
       t.integer :customer_id
       t.boolean :isApproved, default: false
-
+      t.integer :dish_id
       t.timestamps
     end
   end
