@@ -32,9 +32,9 @@ d6 = Dish.create(name: "Greasy Hamburger", user: c1 , cuisine: "American", descr
 
 #Events / date format (yyyy,mm,dd)
 
-e1 = Event.create(party_size: 2, chef: c1, customer_id: u1.id, date: Date.new(2009,10,9) , ocassion: "Anniversary", dish_id: d4.id)
-e2 = Event.create(party_size: 4, chef: c1, customer_id: u2.id, date: Date.new(2009,10,20) , ocassion: "Birthday", dish_id: d6.id)
-e3 = Event.create(party_size: 3, chef: c2, customer_id: u1.id, date: Date.new(2009,11,19) , ocassion: "Baptism", dish_id: d3.id)
+e1 = Event.create(party_size: 2, chef: c1, customer_id: u1.id, date: Date.new(2009,10,9) , ocassion: "Anniversary", dish_name: "Arancini con Queso")
+e2 = Event.create(party_size: 4, chef: c3, customer_id: u2.id, date: Date.new(2009,10,20) , ocassion: "Birthday", dish_name: "Greasy Hamburger")
+e3 = Event.create(party_size: 3, chef: c2, customer_id: u1.id, date: Date.new(2009,11,19) , ocassion: "Baptism", dish_name: "Sushi")
 
 
 

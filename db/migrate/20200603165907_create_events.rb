@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.integer :chef_id
       t.integer :customer_id
       t.boolean :isApproved, default: nil
-      t.integer :dish_id
+      t.string :dish_name
      
     end
   end

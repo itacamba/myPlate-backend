@@ -24251,3 +24251,2335 @@ Migrating to CreateDishes (20200603165937)
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 3], ["date", "2009-11-19"], ["ocassion", "Baptism"], ["chef_id", 4], ["customer_id", 1], ["dish_id", 3]]
   [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/events/1" for ::1 at 2020-06-09 17:21:48 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:21:48 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[35m (22.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (5.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (4.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 154ms (Views: 12.7ms | ActiveRecord: 72.0ms | Allocations: 29374)
+
+
+  [1m[36mDish Load (10.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 179ms (Views: 0.7ms | ActiveRecord: 51.8ms | Allocations: 30412)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:23:05 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 1.2ms | Allocations: 1739)
+
+
+Started GET "/chefs" for ::1 at 2020-06-09 17:23:05 -0400
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (24.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (5.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (19.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 72ms (Views: 1.5ms | ActiveRecord: 55.0ms | Allocations: 6563)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:23:16 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Started GET "/chefs" for ::1 at 2020-06-09 17:23:16 -0400
+  [1m[36mUser Load (14.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mEvent Load (2.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+Completed 200 OK in 25ms (Views: 5.1ms | ActiveRecord: 16.8ms | Allocations: 2474)
+
+
+  [1m[36mDish Load (7.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (11.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 122ms (Views: 2.6ms | ActiveRecord: 27.9ms | Allocations: 7748)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:24:40 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:24:40 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (17.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (26.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 51ms (Views: 2.8ms | ActiveRecord: 43.7ms | Allocations: 1709)
+
+
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (2.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 41ms (Views: 4.7ms | ActiveRecord: 8.4ms | Allocations: 6564)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:25:17 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:25:17 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (23.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (504.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 536ms (Views: 5.2ms | ActiveRecord: 528.5ms | Allocations: 2999)
+
+
+  [1m[36mDish Load (885.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (57.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (8.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 975ms (Views: 2.5ms | ActiveRecord: 954.9ms | Allocations: 7782)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:26:57 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (1.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 8ms (Views: 3.3ms | ActiveRecord: 2.5ms | Allocations: 1700)
+
+
+Started GET "/chefs" for ::1 at 2020-06-09 17:26:57 -0400
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 26ms (Views: 1.4ms | ActiveRecord: 6.8ms | Allocations: 6563)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:27:15 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:27:15 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (32.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (2.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 43ms (Views: 4.7ms | ActiveRecord: 35.3ms | Allocations: 1700)
+
+
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (55.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 86ms (Views: 0.6ms | ActiveRecord: 69.4ms | Allocations: 6563)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:27:55 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Started GET "/chefs" for ::1 at 2020-06-09 17:27:55 -0400
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mEvent Load (3.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 11ms (Views: 1.9ms | ActiveRecord: 6.0ms | Allocations: 2439)
+
+
+  [1m[36mUser Load (19.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (4.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 47ms (Views: 1.9ms | ActiveRecord: 27.2ms | Allocations: 7771)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:29:46 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:29:46 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (16.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 26ms (Views: 3.6ms | ActiveRecord: 20.5ms | Allocations: 2980)
+
+
+  [1m[36mDish Load (11.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (32.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (12.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (54.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (5.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 147ms (Views: 0.9ms | ActiveRecord: 126.0ms | Allocations: 8428)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:30:26 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:30:26 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (17.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (23.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 32ms (Views: 3.7ms | ActiveRecord: 25.1ms | Allocations: 2113)
+
+
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (5.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (31.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (15.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (4.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 823ms (Views: 1.1ms | ActiveRecord: 80.7ms | Allocations: 8438)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:30:45 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:30:45 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (471.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mEvent Load (10.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 516ms (Views: 3.1ms | ActiveRecord: 482.0ms | Allocations: 2094)
+
+
+  [1m[36mUser Load (32.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (42.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (23.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (111.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (400.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 635ms (Views: 4.3ms | ActiveRecord: 610.6ms | Allocations: 7785)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:31:03 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:31:03 -0400
+Processing by UsersController#user_events as */*
+Processing by UsersController#chefs_index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (256.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (20.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (280.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (6.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mEvent Load (4.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 300ms (Views: 10.8ms | ActiveRecord: 284.6ms | Allocations: 4586)
+
+
+  [1m[36mDish Load (329.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (11.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (40.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 702ms (Views: 2.5ms | ActiveRecord: 663.8ms | Allocations: 8512)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:31:21 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:31:21 -0400
+Processing by UsersController#user_events as */*
+Processing by UsersController#chefs_index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (388.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (98.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (503.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (20.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (9.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (2.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 519ms (Views: 3.6ms | ActiveRecord: 512.8ms | Allocations: 4615)
+
+
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (8.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (191.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 730ms (Views: 4.8ms | ActiveRecord: 709.6ms | Allocations: 8505)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:31:31 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:31:31 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.6ms | Allocations: 1709)
+
+
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (1.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 33ms (Views: 4.3ms | ActiveRecord: 11.5ms | Allocations: 6563)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:31:50 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:31:50 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (79.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (90.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (95.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 180ms (Views: 3.7ms | ActiveRecord: 174.2ms | Allocations: 2980)
+
+
+  [1m[36mDish Load (21.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (15.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 151ms (Views: 1.7ms | ActiveRecord: 130.5ms | Allocations: 8427)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:34:01 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:34:01 -0400
+Processing by UsersController#chefs_index as */*
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (2.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 10ms (Views: 2.1ms | ActiveRecord: 5.5ms | Allocations: 1700)
+
+
+  [1m[36mUser Load (17.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 40ms (Views: 0.7ms | ActiveRecord: 19.6ms | Allocations: 8515)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:34:41 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Started GET "/chefs" for ::1 at 2020-06-09 17:34:41 -0400
+  [1m[36mUser Load (12.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mEvent Load (2.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+Completed 200 OK in 26ms (Views: 7.1ms | ActiveRecord: 14.1ms | Allocations: 2937)
+
+
+  [1m[36mDish Load (3.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 34ms (Views: 1.5ms | ActiveRecord: 11.4ms | Allocations: 7771)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:36:13 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:36:13 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (26.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (39.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  [1m[36mDish Load (16.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 53ms (Views: 7.4ms | ActiveRecord: 42.3ms | Allocations: 3680)
+
+
+  [1m[36mDish Load (14.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (9.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (5.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 102ms (Views: 0.8ms | ActiveRecord: 73.2ms | Allocations: 8431)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:36:19 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:36:19 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mEvent Load (3.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 10ms (Views: 2.7ms | ActiveRecord: 3.4ms | Allocations: 2091)
+
+
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (9.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (11.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (13.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 60ms (Views: 1.0ms | ActiveRecord: 44.3ms | Allocations: 7771)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:36:44 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:36:44 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 1.4ms | Allocations: 1984)
+
+
+  [1m[36mUser Load (12.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 34ms (Views: 0.9ms | ActiveRecord: 16.1ms | Allocations: 8427)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 17:41:30 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 17:41:30 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (26.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  [1m[36mUser Load (30.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+Completed 200 OK in 37ms (Views: 3.4ms | ActiveRecord: 28.6ms | Allocations: 2488)
+
+
+  [1m[36mDish Load (3.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (13.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 71ms (Views: 1.1ms | ActiveRecord: 52.3ms | Allocations: 8427)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 18:05:46 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 2.0ms | Allocations: 1849)
+
+
+Started POST "/events" for ::1 at 2020-06-09 18:11:12 -0400
+Processing by EventsController#create as */*
+  Parameters: {"ocassion"=>"parteeeyyy", "party_size"=>"4", "date"=>[6, "12", "2020"], "dish_id"=>1, "chef_id"=>5, "customer_id"=>1, "event"=>{"party_size"=>"4", "date"=>[6, "12", "2020"], "ocassion"=>"parteeeyyy", "chef_id"=>5, "customer_id"=>1, "dish_id"=>1}}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:7:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `create'
+  [1m[36mEvent Create (1.0ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 4], ["date", "2020-06-12"], ["ocassion", "parteeeyyy"], ["chef_id", 5], ["customer_id", 1], ["dish_id", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `create'
+  [1m[35m (41.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:7:in `create'
+Completed 200 OK in 60ms (Views: 0.5ms | ActiveRecord: 45.8ms | Allocations: 5584)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 18:13:19 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.9ms | Allocations: 1854)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:30:30 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 20:30:30 -0400
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (1.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 30ms (Views: 1.3ms | ActiveRecord: 10.4ms | Allocations: 6745)
+
+
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 1.7ms | Allocations: 1969)
+
+
+Started GET "/chefs" for ::1 at 2020-06-09 20:33:53 -0400
+Started GET "/events/1" for ::1 at 2020-06-09 20:33:53 -0400
+Processing by UsersController#chefs_index as */*
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (4.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (4.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (3.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 22ms (Views: 13.1ms | ActiveRecord: 3.7ms | Allocations: 4731)
+
+
+  [1m[36mDish Load (7.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (8.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 54ms (Views: 0.8ms | ActiveRecord: 34.8ms | Allocations: 8993)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:34:36 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 20:34:36 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (126.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 136ms (Views: 3.1ms | ActiveRecord: 127.7ms | Allocations: 2211)
+
+
+  [1m[36mUser Load (35.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (27.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 85ms (Views: 1.3ms | ActiveRecord: 71.0ms | Allocations: 7891)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:35:33 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/chefs" for ::1 at 2020-06-09 20:35:33 -0400
+  [1m[36mEvent Load (3.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 19ms (Views: 4.6ms | ActiveRecord: 10.6ms | Allocations: 2171)
+
+
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (19.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (18.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 64ms (Views: 1.2ms | ActiveRecord: 43.7ms | Allocations: 6563)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:36:26 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 20:36:26 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (12.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (11.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (6.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 29ms (Views: 8.2ms | ActiveRecord: 19.1ms | Allocations: 4989)
+
+
+  [1m[36mDish Load (9.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 48ms (Views: 1.3ms | ActiveRecord: 26.6ms | Allocations: 8550)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:36:54 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 20:36:54 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (15.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 22ms (Views: 2.9ms | ActiveRecord: 17.2ms | Allocations: 1820)
+
+
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (19.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (16.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 70ms (Views: 2.0ms | ActiveRecord: 42.7ms | Allocations: 6563)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:37:24 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (6.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 24ms (Views: 1.8ms | ActiveRecord: 20.2ms | Allocations: 1820)
+
+
+Started GET "/chefs" for ::1 at 2020-06-09 20:37:24 -0400
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (230.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (14.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (106.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (8.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (269.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 651ms (Views: 1.2ms | ActiveRecord: 630.4ms | Allocations: 6567)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:37:36 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 20:37:36 -0400
+Processing by UsersController#chefs_index as */*
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (25.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (27.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 42ms (Views: 4.8ms | ActiveRecord: 30.4ms | Allocations: 4292)
+
+
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 61ms (Views: 1.2ms | ActiveRecord: 37.9ms | Allocations: 8967)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:43:29 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 41ms (Views: 12.7ms | ActiveRecord: 1.7ms | Allocations: 16237)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:44:09 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 72ms (Views: 22.6ms | ActiveRecord: 24.8ms | Allocations: 16664)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:44:48 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 59ms (Views: 13.4ms | ActiveRecord: 17.2ms | Allocations: 16614)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:45:02 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 61ms (Views: 10.8ms | ActiveRecord: 13.0ms | Allocations: 16649)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:45:41 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 45ms (Views: 9.7ms | ActiveRecord: 12.3ms | Allocations: 16607)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:46:28 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 48ms (Views: 10.8ms | ActiveRecord: 18.2ms | Allocations: 16647)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 20:47:39 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 78ms (Views: 0.3ms | ActiveRecord: 20.2ms | Allocations: 19442)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:04:22 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:04:22 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (4.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 36ms (Views: 0.4ms | ActiveRecord: 15.8ms | Allocations: 8060)
+
+
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 102ms (Views: 0.6ms | ActiveRecord: 44.8ms | Allocations: 18684)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:07:02 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:07:02 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (4.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (2.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (3.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+Completed 200 OK in 204ms (Views: 0.3ms | ActiveRecord: 19.8ms | Allocations: 9598)
+
+
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 40ms (Views: 1.2ms | ActiveRecord: 10.6ms | Allocations: 10511)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:07:17 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:07:17 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (81.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (105.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (196.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (197.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (26.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mUser Load (31.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 341ms (Views: 0.3ms | ActiveRecord: 320.1ms | Allocations: 6983)
+
+
+  [1m[36mDish Load (17.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (18.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 417ms (Views: 1.6ms | ActiveRecord: 366.8ms | Allocations: 11141)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:15:25 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:15:25 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (2.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 31ms (Views: 0.3ms | ActiveRecord: 10.2ms | Allocations: 4915)
+
+
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (2.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 51ms (Views: 1.0ms | ActiveRecord: 17.0ms | Allocations: 6694)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:18:42 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:18:42 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (6.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 75ms (Views: 0.6ms | ActiveRecord: 14.7ms | Allocations: 6712)
+
+
+  [1m[36mDish Load (11.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 40ms (Views: 0.6ms | ActiveRecord: 24.4ms | Allocations: 9739)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:18:51 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:18:51 -0400
+Processing by UsersController#user_events as */*
+Processing by UsersController#chefs_index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (2.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (2.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 7.2ms | Allocations: 7295)
+
+
+  [1m[36mDish Load (12.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 35ms (Views: 1.2ms | ActiveRecord: 20.0ms | Allocations: 11212)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:19:37 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (5.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 56ms (Views: 0.6ms | ActiveRecord: 24.5ms | Allocations: 19552)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1 LIMIT $2[0m  [["user_id", 7], ["LIMIT", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1 LIMIT $2[0m  [["user_id", 5], ["LIMIT", 11]]
+Started GET "/events/5" for ::1 at 2020-06-09 21:21:49 -0400
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 10.3ms | Allocations: 13164)
+
+
+Started GET "/events/5" for ::1 at 2020-06-09 21:21:52 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 5]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1316)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Destroy (0.5ms)[0m  [1m[31mDELETE FROM "dishes" WHERE "dishes"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Destroy (0.4ms)[0m  [1m[31mDELETE FROM "dishes" WHERE "dishes"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Destroy (0.5ms)[0m  [1m[31mDELETE FROM "dishes" WHERE "dishes"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Destroy (0.6ms)[0m  [1m[31mDELETE FROM "dishes" WHERE "dishes"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Destroy (0.4ms)[0m  [1m[31mDELETE FROM "dishes" WHERE "dishes"."id" = $1[0m  [["id", 5]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Destroy (0.4ms)[0m  [1m[31mDELETE FROM "dishes" WHERE "dishes"."id" = $1[0m  [["id", 6]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lola"], ["email", "lola@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["created_at", "2020-06-10 01:22:19.660938"], ["updated_at", "2020-06-10 01:22:19.660938"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mary"], ["email", "mary@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["created_at", "2020-06-10 01:22:19.667106"], ["updated_at", "2020-06-10 01:22:19.667106"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Francois Chang"], ["email", "fran@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["is_chef", true], ["created_at", "2020-06-10 01:22:19.672431"], ["updated_at", "2020-06-10 01:22:19.672431"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dave Molina"], ["email", "dave@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["is_chef", true], ["created_at", "2020-06-10 01:22:19.677814"], ["updated_at", "2020-06-10 01:22:19.677814"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "img", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Beza Sirak"], ["email", "beza@mail.com"], ["password_digest", "pass"], ["img", "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512"], ["about", "I make a killer Kitfo"], ["is_chef", true], ["created_at", "2020-06-10 01:22:19.683395"], ["updated_at", "2020-06-10 01:22:19.683395"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Bill Gates"], ["email", "bill@mail.com"], ["password_digest", "pass"], ["about", "I can also make real food, not only virtual"], ["is_chef", true], ["created_at", "2020-06-10 01:22:19.689376"], ["updated_at", "2020-06-10 01:22:19.689376"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Elon Musk"], ["email", "elon@mail.com"], ["password_digest", "pass"], ["about", "Are you ready to try food out of this world?"], ["is_chef", true], ["created_at", "2020-06-10 01:22:19.695004"], ["updated_at", "2020-06-10 01:22:19.695004"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.5ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "img", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Kitfo"], ["cuisine", "Etiopian"], ["img", "https://i.pinimg.com/originals/a9/c1/82/a9c182c0221388027b13e91853bd4d35.png"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 12], ["created_at", "2020-06-10 01:22:19.702003"], ["updated_at", "2020-06-10 01:22:19.702003"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ravioli con Carne"], ["cuisine", "Italian"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 12], ["created_at", "2020-06-10 01:22:19.707681"], ["updated_at", "2020-06-10 01:22:19.707681"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sushi"], ["cuisine", "Asian"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 11], ["created_at", "2020-06-10 01:22:19.713382"], ["updated_at", "2020-06-10 01:22:19.713382"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Arancini con Queso"], ["cuisine", "French"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 10], ["created_at", "2020-06-10 01:22:19.719298"], ["updated_at", "2020-06-10 01:22:19.719298"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Doro Wet"], ["cuisine", "African"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 11], ["created_at", "2020-06-10 01:22:19.724805"], ["updated_at", "2020-06-10 01:22:19.724805"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Greasy Hamburger"], ["cuisine", "American"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 10], ["created_at", "2020-06-10 01:22:19.730180"], ["updated_at", "2020-06-10 01:22:19.730180"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 2], ["date", "2009-10-09"], ["ocassion", "Anniversary"], ["chef_id", 10], ["customer_id", 8], ["dish_id", 10]]
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 4], ["date", "2009-10-20"], ["ocassion", "Birthday"], ["chef_id", 12], ["customer_id", 9], ["dish_id", 12]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 3], ["date", "2009-11-19"], ["ocassion", "Baptism"], ["chef_id", 11], ["customer_id", 8], ["dish_id", 9]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/events/5" for ::1 at 2020-06-09 21:22:28 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 17ms (ActiveRecord: 8.0ms | Allocations: 4755)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=5):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/events/5" for ::1 at 2020-06-09 21:22:30 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 700)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=5):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/events/8" for ::1 at 2020-06-09 21:22:41 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 7.5ms | Allocations: 17547)
+
+
+Started GET "/events/10" for ::1 at 2020-06-09 21:22:51 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 10]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 1316)
+
+
+Started GET "/events/9" for ::1 at 2020-06-09 21:22:55 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 9]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2337)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:25:11 -0400
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for DishesController):
+  
+actionpack (6.0.3.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/dishes" for ::1 at 2020-06-09 21:25:35 -0400
+Processing by DishesController#index as HTML
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 21ms (Views: 11.0ms | ActiveRecord: 8.0ms | Allocations: 7717)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:31:21 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:31:21 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 33ms (ActiveRecord: 19.4ms | Allocations: 3594)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (23.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 78ms (Views: 15.9ms | ActiveRecord: 30.2ms | Allocations: 13560)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:32:28 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+Started GET "/chefs" for ::1 at 2020-06-09 21:32:28 -0400
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+Completed 404 Not Found in 6ms (ActiveRecord: 1.1ms | Allocations: 1295)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (103.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (152.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (99.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 391ms (Views: 0.9ms | ActiveRecord: 357.9ms | Allocations: 32367)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:33:02 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 3ms (ActiveRecord: 1.3ms | Allocations: 647)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/events/2" for ::1 at 2020-06-09 21:33:04 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 3ms (ActiveRecord: 1.4ms | Allocations: 646)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/events/5" for ::1 at 2020-06-09 21:33:10 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 646)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=5):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/events/6" for ::1 at 2020-06-09 21:33:13 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 646)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=6):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/events/7" for ::1 at 2020-06-09 21:33:17 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Completed 404 Not Found in 3ms (ActiveRecord: 1.1ms | Allocations: 646)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=7):
+  
+app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/events/8" for ::1 at 2020-06-09 21:33:20 -0400
+Processing by UsersController#user_events as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 7.7ms | Allocations: 10798)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:33:36 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:33:36 -0400
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (4.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+Processing by UsersController#user_events as */*
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (2.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 26ms (Views: 0.7ms | ActiveRecord: 9.9ms | Allocations: 7627)
+
+
+  [1m[36mEvent Load (11.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 22ms (Views: 0.9ms | ActiveRecord: 12.6ms | Allocations: 7197)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:33:39 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.7ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:33:39 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 1.3ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:34:48 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:34:48 -0400
+Processing by UsersController#chefs_index as */*
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (2.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 11.2ms | Allocations: 7275)
+
+
+  [1m[36mDish Load (3.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 40ms (Views: 1.9ms | ActiveRecord: 10.1ms | Allocations: 10206)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:34:49 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.5ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:34:49 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.8ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:35:10 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:35:10 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (7.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (1.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 28ms (Views: 0.7ms | ActiveRecord: 11.7ms | Allocations: 7955)
+
+
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 25.3ms | Allocations: 10473)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:35:11 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:35:11 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.4ms | Allocations: 1777)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:35:42 -0400
+Processing by DishesController#index as HTML
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.9ms | Allocations: 1772)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:36:01 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:36:01 -0400
+Processing by UsersController#chefs_index as */*
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (16.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (14.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (11.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (5.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 26.3ms | Allocations: 5260)
+
+
+  [1m[36mDish Load (16.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 63ms (Views: 1.1ms | ActiveRecord: 48.6ms | Allocations: 10520)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:36:05 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:36:05 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.9ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:36:16 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (3.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 6.7ms | Allocations: 3373)
+
+
+Started GET "/chefs" for ::1 at 2020-06-09 21:36:16 -0400
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 19ms (Views: 0.6ms | ActiveRecord: 6.3ms | Allocations: 6563)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:36:17 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (2.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 2.0ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:36:17 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.6ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:38:12 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Started GET "/chefs" for ::1 at 2020-06-09 21:38:12 -0400
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 13.8ms | Allocations: 5993)
+
+
+  [1m[36mDish Load (10.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 26ms (Views: 0.8ms | ActiveRecord: 13.1ms | Allocations: 7790)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:38:25 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:38:25 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (3.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (2.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (4.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 23.0ms | Allocations: 6649)
+
+
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 34ms (Views: 0.7ms | ActiveRecord: 12.6ms | Allocations: 10069)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:38:28 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:38:28 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (8.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (126.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (125.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (15.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (21.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 202ms (Views: 1.6ms | ActiveRecord: 158.9ms | Allocations: 5654)
+
+
+  [1m[36mDish Load (9.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (5.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (36.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (18.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 228ms (Views: 1.1ms | ActiveRecord: 210.4ms | Allocations: 8709)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:38:31 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 1.2ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:38:31 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (36.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 39ms (Views: 2.9ms | ActiveRecord: 36.2ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:38:45 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:38:45 -0400
+Processing by UsersController#chefs_index as */*
+Processing by UsersController#user_events as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Parameters: {"user_id"=>"8"}
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (3.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 26ms (Views: 1.1ms | ActiveRecord: 5.6ms | Allocations: 9293)
+
+
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 32ms (Views: 0.4ms | ActiveRecord: 17.1ms | Allocations: 9578)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:38:47 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (3.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 3.4ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:38:47 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.4ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:40:44 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:40:44 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (11.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (85.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (64.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (18.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (13.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mDish Load (1.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 121ms (Views: 0.3ms | ActiveRecord: 108.8ms | Allocations: 9096)
+
+
+Completed 200 OK in 116ms (Views: 1.2ms | ActiveRecord: 99.8ms | Allocations: 9261)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:40:46 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (1.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 1.4ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:40:46 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:41:42 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:41:43 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (3.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (10.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+Completed 200 OK in 38ms (Views: 0.6ms | ActiveRecord: 25.2ms | Allocations: 8243)
+
+
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 40ms (Views: 0.9ms | ActiveRecord: 18.6ms | Allocations: 10048)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:41:55 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:41:55 -0400
+Processing by UsersController#user_events as */*
+Processing by UsersController#chefs_index as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mUser Load (17.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mEvent Load (14.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (8.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (27.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 74ms (Views: 0.4ms | ActiveRecord: 56.2ms | Allocations: 5289)
+
+
+  [1m[36mDish Load (33.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (5.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (20.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 114ms (Views: 0.8ms | ActiveRecord: 85.2ms | Allocations: 10178)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:42:00 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:42:00 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (12.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 15.4ms | Allocations: 4653)
+
+
+  [1m[36mDish Load (3.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (3.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 38ms (Views: 1.4ms | ActiveRecord: 20.3ms | Allocations: 8708)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:42:10 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:42:10 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (5.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (8.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 26ms (Views: 0.5ms | ActiveRecord: 16.2ms | Allocations: 5651)
+
+
+  [1m[36mDish Load (17.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 44ms (Views: 0.8ms | ActiveRecord: 29.3ms | Allocations: 9456)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:42:12 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (4.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 10ms (Views: 4.0ms | ActiveRecord: 4.8ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:42:12 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 1.2ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:42:52 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:42:52 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (30.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mEvent Load (7.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (37.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (15.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 104ms (Views: 0.2ms | ActiveRecord: 92.1ms | Allocations: 4653)
+
+
+  [1m[36mDish Load (6.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 16.4ms | Allocations: 7790)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:42:54 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (3.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 3.7ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:42:54 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:43:20 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:43:20 -0400
+Processing by UsersController#user_events as */*
+Processing by UsersController#chefs_index as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (3.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (3.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 46ms (Views: 21.2ms | ActiveRecord: 9.1ms | Allocations: 7260)
+
+
+  [1m[36mDish Load (23.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 56ms (Views: 1.3ms | ActiveRecord: 32.1ms | Allocations: 10182)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:43:21 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (1.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 1.9ms | Allocations: 1774)
+
+
+Started GET "/dishes" for ::1 at 2020-06-09 21:43:21 -0400
+Processing by DishesController#index as */*
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  ↳ app/controllers/dishes_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1774)
+
+
+Started GET "/events/8" for ::1 at 2020-06-09 21:44:06 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Started GET "/chefs" for ::1 at 2020-06-09 21:44:06 -0400
+  [1m[36mEvent Load (29.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 8]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (12.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 52ms (Views: 0.3ms | ActiveRecord: 43.9ms | Allocations: 4112)
+
+
+  [1m[36mUser Load (18.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mDish Load (3.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (1.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 11]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (2.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (12.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (5.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 60ms (Views: 1.1ms | ActiveRecord: 43.5ms | Allocations: 7790)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (95.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "mp_development"[0m
+  [1m[35m (78.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "mp_test"[0m
+  [1m[35m (175.9ms)[0m  [1m[35mCREATE DATABASE "mp_development" ENCODING = 'unicode'[0m
+  [1m[35m (170.2ms)[0m  [1m[35mCREATE DATABASE "mp_test" ENCODING = 'unicode'[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6264593022525104610)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEvents (20200603165907)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (51.7ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "party_size" integer, "date" date, "ocassion" character varying, "chef_id" integer, "customer_id" integer, "isApproved" boolean DEFAULT NULL, "dish_name" character varying)[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200603165907"]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200603165928)
+  [1m[35m (41.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "cover_img" character varying DEFAULT 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png', "img" character varying DEFAULT 'https://voxpopulii.in/system/static/dashboard/img/default_user.png', "about" text, "is_chef" boolean DEFAULT FALSE, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200603165928"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDishes (20200603165937)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "dishes" ("id" bigserial primary key, "name" character varying, "cuisine" character varying, "img" character varying DEFAULT 'https://cdn2.iconfinder.com/data/icons/food-restaurant-1/128/flat-15-512.png', "description" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200603165937"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-10 01:46:32.144309"], ["updated_at", "2020-06-10 01:46:32.144309"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6264593022525104610)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lola"], ["email", "lola@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["created_at", "2020-06-10 01:47:33.433021"], ["updated_at", "2020-06-10 01:47:33.433021"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mary"], ["email", "mary@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["created_at", "2020-06-10 01:47:33.439330"], ["updated_at", "2020-06-10 01:47:33.439330"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Francois Chang"], ["email", "fran@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["is_chef", true], ["created_at", "2020-06-10 01:47:33.444953"], ["updated_at", "2020-06-10 01:47:33.444953"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dave Molina"], ["email", "dave@mail.com"], ["password_digest", "pass"], ["about", "I am a human being"], ["is_chef", true], ["created_at", "2020-06-10 01:47:33.450839"], ["updated_at", "2020-06-10 01:47:33.450839"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "img", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Beza Sirak"], ["email", "beza@mail.com"], ["password_digest", "pass"], ["img", "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512"], ["about", "I make a killer Kitfo"], ["is_chef", true], ["created_at", "2020-06-10 01:47:33.456174"], ["updated_at", "2020-06-10 01:47:33.456174"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Bill Gates"], ["email", "bill@mail.com"], ["password_digest", "pass"], ["about", "I can also make real food, not only virtual"], ["is_chef", true], ["created_at", "2020-06-10 01:47:33.461618"], ["updated_at", "2020-06-10 01:47:33.461618"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "about", "is_chef", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Elon Musk"], ["email", "elon@mail.com"], ["password_digest", "pass"], ["about", "Are you ready to try food out of this world?"], ["is_chef", true], ["created_at", "2020-06-10 01:47:33.467011"], ["updated_at", "2020-06-10 01:47:33.467011"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.7ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "img", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Kitfo"], ["cuisine", "Etiopian"], ["img", "https://i.pinimg.com/originals/a9/c1/82/a9c182c0221388027b13e91853bd4d35.png"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 5], ["created_at", "2020-06-10 01:47:33.483543"], ["updated_at", "2020-06-10 01:47:33.483543"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.5ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ravioli con Carne"], ["cuisine", "Italian"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 5], ["created_at", "2020-06-10 01:47:33.489744"], ["updated_at", "2020-06-10 01:47:33.489744"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sushi"], ["cuisine", "Asian"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 4], ["created_at", "2020-06-10 01:47:33.495756"], ["updated_at", "2020-06-10 01:47:33.495756"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Arancini con Queso"], ["cuisine", "French"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 3], ["created_at", "2020-06-10 01:47:33.501109"], ["updated_at", "2020-06-10 01:47:33.501109"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.5ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Doro Wet"], ["cuisine", "African"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 4], ["created_at", "2020-06-10 01:47:33.506867"], ["updated_at", "2020-06-10 01:47:33.506867"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Create (0.4ms)[0m  [1m[32mINSERT INTO "dishes" ("name", "cuisine", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Greasy Hamburger"], ["cuisine", "American"], ["description", "Delicious food so you can eat it and then eat some more."], ["user_id", 3], ["created_at", "2020-06-10 01:47:33.513444"], ["updated_at", "2020-06-10 01:47:33.513444"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 2], ["date", "2009-10-09"], ["ocassion", "Anniversary"], ["chef_id", 3], ["customer_id", 1], ["dish_name", "Arancini con Queso"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 4], ["date", "2009-10-20"], ["ocassion", "Birthday"], ["chef_id", 5], ["customer_id", 2], ["dish_name", "Greasy Hamburger"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("party_size", "date", "ocassion", "chef_id", "customer_id", "dish_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["party_size", 3], ["date", "2009-11-19"], ["ocassion", "Baptism"], ["chef_id", 4], ["customer_id", 1], ["dish_name", "Sushi"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/chefs" for ::1 at 2020-06-09 21:48:31 -0400
+Started GET "/events/1" for ::1 at 2020-06-09 21:48:31 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#chefs_index as */*
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#user_events as */*
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Parameters: {"user_id"=>"1"}
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mUser Load (13.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+  [1m[36mDish Load (0.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (8.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (2.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+Completed 200 OK in 61ms (Views: 0.4ms | ActiveRecord: 36.7ms | Allocations: 28893)
+
+
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (5.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 80ms (Views: 1.2ms | ActiveRecord: 32.8ms | Allocations: 36254)
+
+
+Started GET "/events/1" for ::1 at 2020-06-09 21:48:34 -0400
+Started GET "/chefs" for ::1 at 2020-06-09 21:48:34 -0400
+Processing by UsersController#user_events as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `user_events'
+Processing by UsersController#chefs_index as */*
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `chefs_index'
+  [1m[36mEvent Load (9.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."customer_id" = $1[0m  [["customer_id", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `user_events'
+Completed 200 OK in 37ms (Views: 0.3ms | ActiveRecord: 18.3ms | Allocations: 6730)
+
+
+  [1m[36mDish Load (19.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+  [1m[36mDish Load (7.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:12:in `chefs_index'
+Completed 200 OK in 61ms (Views: 1.0ms | ActiveRecord: 32.1ms | Allocations: 9522)
+
+

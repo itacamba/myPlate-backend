@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     def user_events
         user = User.find(params[:user_id])
         events = Event.all.where(customer_id: user.id)
-        render json: events
+        render json: events.as_json(include: {chef: {only: [:name] }}, except: [:created_at, :updated_at])
     end
 
 end
