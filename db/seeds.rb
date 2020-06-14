@@ -22,7 +22,7 @@ c5 = User.create(name: "Elon Musk", email: "elon@mail.com", password_digest: "pa
 c6 = User.create(name: "Junior Az", email: "jun@mail.com", password_digest: "pass", about: "What's cooking good looking?", is_chef: true, img: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/103635320_3200894973307689_9091135155604094267_n.jpg?_nc_cat=106&_nc_sid=8bfeb9&_nc_ohc=O2dAZJTfvSkAX8uEIF_&_nc_ht=scontent-iad3-1.xx&oh=a140231ede3e0a15822525d287e89fea&oe=5F0997FE")
 
 #Dishes
-d1 = Dish.create(name: "Kitfo", user: c3 , cuisine: "Etiopian", description: "Delicious food so you can eat it and then eat some more.", img: "https://i.pinimg.com/originals/a9/c1/82/a9c182c0221388027b13e91853bd4d35.png")
+d1 = Dish.create(name: "Kitfo", user: c3 , cuisine: "Ethiopian", description: "Delicious food so you can eat it and then eat some more.", img: "https://i.pinimg.com/originals/a9/c1/82/a9c182c0221388027b13e91853bd4d35.png")
 d2 = Dish.create(name: "Ravioli con Carne", user: c3 , cuisine: "Italian", description:"Delicious food so you can eat it and then eat some more." )
 d3 = Dish.create(name: "Sushi", user: c2 , cuisine: "Asian", description: "Delicious food so you can eat it and then eat some more.")
 d4 = Dish.create(name: "Arancini con Queso", user: c1 , cuisine: "French", description:"Delicious food so you can eat it and then eat some more." )
