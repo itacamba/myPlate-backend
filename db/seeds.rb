@@ -14,12 +14,12 @@ Dish.destroy_all
 u1 = User.create(name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being" )
 u2 = User.create(name: "Mary", email: "mary@mail.com", password_digest: "pass", about: "I am a human being" )
 #Chefs
-c1 = User.create(name: "Francois Chang", email: "fran@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
-c2 = User.create(name: "Dave Molina", email: "dave@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true )
-c3 = User.create(name: "Beza Sirak", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo", img: "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512",is_chef: true)
-c4 = User.create(name: "Bill Gates", email: "bill@mail.com", password_digest: "pass", about: "I can also make real food, not only virtual", is_chef: true)
-c5 = User.create(name: "Elon Musk", email: "elon@mail.com", password_digest: "pass", about: "Are you ready to try food out of this world?", is_chef: true)
-
+c1 = User.create(name: "Mark Zuckerberg", email: "mark@mail.com", password_digest: "pass", about: "I am a human being", is_chef: true , img: "https://stvp-static-prod.s3.amazonaws.com/uploads/sites/2/2017/10/Zuckerberg_Mark_eCorner_Contributor_Cropped.jpg")
+c2 = User.create(name: "Jeff Bezos", email: "jeff@mail.com", password_digest: "pass", about: "I will make sure your package gets home on time, I mean food.", is_chef: true , img: "https://techstory.in/wp-content/uploads/2015/04/Jeff-Bezos1.jpg")
+c3 = User.create(name: "Beza Sirak", email: "beza@mail.com", password_digest: "pass", about: "I make a killer Kitfo" ,img: "https://ca.slack-edge.com/T02MD9XTF-URUT7DR3P-ecbb7719005a-512",is_chef: true)
+c4 = User.create(name: "Bill Gates", email: "bill@mail.com", password_digest: "pass", about: "I can also make real food, not only virtual", is_chef: true, img: "https://www.evoke.org/-/media/Images/Evoke/Contributors/BillGates/BillGates_Headshot.ashx?rev=7e39f3afbe07407a8d79b25ff833ba66")
+c5 = User.create(name: "Elon Musk", email: "elon@mail.com", password_digest: "pass", about: "Are you ready to try food out of this world?", is_chef: true, img:"https://www.cbj.ca/wp-content/uploads/2019/05/Elon-Musk-twitter.jpg")
+c6 = User.create(name: "Junior Az", email: "jun@mail.com", password_digest: "pass", about: "What's cooking good looking?", is_chef: true, img: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/103635320_3200894973307689_9091135155604094267_n.jpg?_nc_cat=106&_nc_sid=8bfeb9&_nc_ohc=O2dAZJTfvSkAX8uEIF_&_nc_ht=scontent-iad3-1.xx&oh=a140231ede3e0a15822525d287e89fea&oe=5F0997FE")
 
 #Dishes
 d1 = Dish.create(name: "Kitfo", user: c3 , cuisine: "Etiopian", description: "Delicious food so you can eat it and then eat some more.", img: "https://i.pinimg.com/originals/a9/c1/82/a9c182c0221388027b13e91853bd4d35.png")

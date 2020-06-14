@@ -12,10 +12,14 @@ class EventsController < ApplicationController
         render json: event
     end
     def update
-        #byebug
+       # byebug
         event = Event.find(params[:id])
         event.update(isApproved: params[:is_approved])
         event.save
         render json: event
+    end
+    def destroy
+        event = Event.find(params[:id])
+        event.destroy
     end
 end
