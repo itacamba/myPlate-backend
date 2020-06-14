@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :dishes, only: [:index, :show]
+  resources :dishes, only: [:index, :show, :update]
   get '/chef-dishes/:user_id', to: 'dishes#chef_dishes'
   resources :users, only: [:index, :show]
   get '/chefs', to: 'users#chefs_index'
