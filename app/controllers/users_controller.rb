@@ -6,7 +6,12 @@ class UsersController < ApplicationController
     def show
         user = User.find(params[:id])
         render json: user
-
+    end
+    def update
+        user = User.find(params[:id])
+        user.update(name: params[:name], email: params[:email], password_digest: params[:password], cover_img: params[:cover_img], img: params[:img], about: params[:about])
+        user.save
+        render json: user
     end
 
     def chefs_index 
