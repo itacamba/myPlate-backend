@@ -3,6 +3,29 @@ class UsersController < ApplicationController
     def index
         render json: User.all
     end
+
+    def authenticate #the user hits this route when login In
+        user = User.find_by(email: params[:email])
+        if( user && user.authenticate(params[:password]))
+            payload = {user_id: user.id} 
+            token = encode(payload) # this method lives in the application controller, and is possible thanks to the jwt gem
+
+            my_hash = {}  # create a new hash that will include all your user data plus the token
+            my_hash["user_data"] = user
+            my_hash["token"] = token
+
+            render json: my_hash
+        else
+            render json: {error_message: "Invalid credentials"}
+        end
+    end
+    
+    def decode_token # when the App component Mounts, user hits this route.
+        token = request.headers["Authenticate"]
+        user = User.find(decode(token)["user_id"]) #this decode() method lives in the Application controller.
+        render json: user
+    end
+
     def show
         user = User.find(params[:id])
         render json: user
