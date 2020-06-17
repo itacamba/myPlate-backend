@@ -12,8 +12,8 @@ Dish.destroy_all
 
 
 #Customers
-u1 = User.create(name: "Lola", email: "lola@mail.com", password_digest: "pass", about: "I am a human being" )
-u2 = User.create(name: "Mary", email: "mary@mail.com", password_digest: "pass", about: "I am a human being" )
+u1 = User.create(name: "Lola", email: "lola@mail.com", password: "pass", about: "I am a human being" )
+u2 = User.create(name: "Mary", email: "mary@mail.com", password: "pass", about: "I am a human being" )
 #Chefs
 c1 = User.create(name: "Mark Zuckerberg", email: "mark@mail.com", password: "pass", about: "I am a human being", is_chef: true , img: "https://stvp-static-prod.s3.amazonaws.com/uploads/sites/2/2017/10/Zuckerberg_Mark_eCorner_Contributor_Cropped.jpg")
 c2 = User.create(name: "Jeff Bezos", email: "jeff@mail.com", password: "pass", about: "I will make sure your package gets home on time, I mean food.", is_chef: true , img: "https://techstory.in/wp-content/uploads/2015/04/Jeff-Bezos1.jpg")
